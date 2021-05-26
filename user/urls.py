@@ -8,6 +8,7 @@ urlpatterns = [
     path('logout',logout_user),
     path('login',login_user,name="login"),
     path('signup', signup),
-    # path('profile/<int:id>', profile),
 
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

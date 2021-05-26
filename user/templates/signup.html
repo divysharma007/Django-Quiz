@@ -13,7 +13,7 @@
 <div class="login_form">
 <div class="headcontainer"><p>Django-Quiz</p></div>
 <br>
-<form class="row" method="POST" >
+<form class="row" method="POST" enctype="multipart/form-data" >
   {%csrf_token%}
    <div class="col">
     <label for="user_name"class="field">Username-</label>
@@ -39,7 +39,11 @@
     <label for="password"  class="field">Password-</label>
     <input type="password" name="password"class="input"></input>
    </div>
-   
+   <br>
+   <div class="col">
+    <label   class="field">Upload Profile Pic-</label>
+    <input type="file" name="profile_pic" class="input"></input>
+   </div>
    
    <br>
 

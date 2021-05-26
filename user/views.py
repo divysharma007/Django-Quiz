@@ -1,6 +1,6 @@
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from .models import User
+from .models import User,profile_pic
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate,logout,login
 
@@ -14,8 +14,8 @@ def signup(request):
             last_name = form['last_name']
             email = form['email']
             password=form['password']
-            #pic=form['profile_pic']
-            #pp=profile_pic()
+            pic=request.FILES['profile_pic']
+            pp=profile_pic()
 
             print(first_name, last_name, email)
             user=User()
@@ -25,9 +25,10 @@ def signup(request):
             user.set_password(password)
             user.email=email
             user.save()
-            #pp.user=user
-            #pp.pic=pic
-            #pp.save()
+            pp.user=user
+            pp.pic=pic
+            print(pp.user,pp.pic)
+            pp.save()
             print(user)
             return HttpResponseRedirect('login')
     
@@ -60,10 +61,10 @@ def login_user(request):
 @login_required
 def user_details(request,id):
     user=User.objects.get(pk=id)
-    #pic=profile_pic.objects.get(user=user)
-    #profile=pic.pic.url
-    print(user.last_name)
-    return render(request,"profile.html",{'username':user.username,'fn':user.first_name,'ln':user.last_name,'email':user.email})
+    pic=profile_pic.objects.get(user=user)
+    profile=pic
+    print(profile.pic.url)
+    return render(request,"profile.html",{'username':user.username,'fn':user.first_name,'ln':user.last_name,'email':user.email,'pic':profile})
 
 @login_required
 def logout_user(request):
@@ -73,7 +74,3 @@ def logout_user(request):
     logout(request)
     return HttpResponse('successfully logged out see you next time ' +user.username)
 
-
-def profile(request,id):
-    user=User.objects.get(pk=id)
-    
