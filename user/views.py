@@ -63,7 +63,6 @@ def user_details(request,id):
     user=User.objects.get(pk=id)
     pic=profile_pic.objects.get(user=user)
     profile=pic
-    print(profile.pic.url)
     return render(request,"profile.html",{'username':user.username,'fn':user.first_name,'ln':user.last_name,'email':user.email,'pic':profile})
 
 @login_required

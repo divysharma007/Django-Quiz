@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'login.css' %}" >
+    <link rel="stylesheet" href="{% static 'quiz_verify.css' %}" >
     <title>Login</title>
 </head>
 <body>
@@ -13,20 +13,19 @@
 <div class="login_form">
 <div class="headcontainer"><p>Django-Quiz</p></div>
 <br>
+<!-- {% for key,items in request.session.items %}
+<div>{{key}} {{items}}  </div>
+{% endfor %} -->
 <form class="row" method="POST" >
     {%csrf_token%}
    <div class="col">
-    <label for="user_name"class="field">Username-</label>
-    <input type="text"   id="user_name" name="user_name" class="input"></input>
+    <label for="enrollment_key"class="field">Enrollment key</label>
+    <input type="text"   id="enrollment_key" name="enrollment_key" class="input"></input>
     </div>
   <br>
-    <div class="col">
-    <label for="password"  class="field">Password-</label>
-    <input type="password" id="user_name" name="password" class="input"></input>
-   </div>
-  <br>
 
-    <input type="submit" value="Login" class="button"></input>
+
+    <input type="submit" value="start" class="button"></input>
     <br>
  
 

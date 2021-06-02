@@ -1,0 +1,52 @@
+* {
+	height: 100%;
+	margin: 0%;
+}
+body {
+	display: flex;
+	justify-content: center;
+}
+.quiz{
+	
+	height: fit-content;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: blanchedalmond;
+	align-items: center;
+}
+.headcontainer {
+	width: 100%;
+	height: 10%;
+	background-color: burlywood;
+	text-align: center;
+	color: whitesmoke;
+}
+p {
+	height: fit-content;
+	margin: auto;
+}
+.row {
+	align-content: center;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+.col {
+	display: flex;
+	flex-direction: row;
+}
+.button {
+	height: fit-content;
+	width: fit-content;
+	align-self: flex-end;
+}
+.input {
+	height: 25%;
+	width: 70%;
+}
+.field {
+	align-content: center;
+
+	width: 35%;
+}

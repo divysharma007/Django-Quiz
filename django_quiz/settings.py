@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'user',
+    'quiz',
 ]
 
 MIDDLEWARE = [
@@ -125,7 +126,7 @@ MEDIA_URL = '/images/'
 
 LOGIN_URL = '/login'
 
-
+SESSION_SAVE_EVERY_REQUEST = True
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
